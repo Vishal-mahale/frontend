@@ -1,0 +1,14 @@
+.productsHeading {
+    text-align: center;
+    margin: 2vmax auto;
+    width: 30vmax;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.724);
+    padding: 2vmax;
+    font: 900 1.6vmax "Roboto";
+}
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5vmax;
+    justify-content: center;
+}

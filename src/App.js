@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import './App.css'
+import Home from './component/Home/Home.js'
+import React, { useEffect } from 'react'
+import WebFont from 'webfontloader'
+import Header from './component/layout/Header/Header'
+import Footer from './component/layout/Footer/Footer.js'
+import ProductDetails from './component/layout/Product/ProductDetails.js'
+import Product from './component/layout/Product/Product.js'
+import Search from './component/layout/Product/Search.js'
 
-function App() {
+function App () {
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ['Roboto', 'Droid Sans', 'Chilanka']
+      }
+    })
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/products/:id' element={<ProductDetails />} />
+        <Route path='/products' element={<Product />} />
+        {/* <Route path='/products/:keyword' element={<Product />} /> */}
+        <Route path='/search' element={<Search />} />
+      </Routes>
+      <Footer />
+    </Router>
+  )
 }
 
-export default App;
+export default App
